@@ -1,0 +1,24 @@
+.course-card {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Ảnh */
+.course-card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Badge BEST SELLER */
+.course-badge {
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+  width: 90px;
+  height: 90px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
