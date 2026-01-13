@@ -5,9 +5,11 @@ import { createRoot } from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import PublicHomePage from './features/public-site/pages/PublicHomePage.jsx';
+import AdminDashBoard from './features/admin/pages/AdminDashBoard.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <PublicHomePage />
+    {/* <PublicHomePage /> */}
+    <AdminDashBoard />
   </StrictMode>,
 )
