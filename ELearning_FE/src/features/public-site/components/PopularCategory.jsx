@@ -1,85 +1,105 @@
-import CategoryCard from '@/shared/components/CategoryCard';
-import React, { useState } from 'react'
-import { Col, Container, Form, Row } from 'react-bootstrap';
+import CategoryCard from "@/shared/components/CategoryCard";
+import React, { useState } from "react";
+import { Col, Container, Form, Row } from "react-bootstrap";
 
 const PopularCategory = () => {
-    const [categories, setCategories] = useState([
-        {
-            id: 1,
-            categoryName: 'Web Development',
-            availabePosition: 120,
-            numberInterested: 3000
-        },
-        {
-            id: 2,
-            categoryName: 'Data Science',
-            availabePosition: 80,
-            numberInterested: 2500
-        },
-        {
-            id: 3,
-            categoryName: 'Graphic Design',
-            availabePosition: 50,
-            numberInterested: 1500
-        },
-        {
-            id: 4,
-            categoryName: 'Mobile Development',
-            availabePosition: 100,
-            numberInterested: 2000
-        },
-        {
-            id: 5,
-            categoryName: 'Digital Marketing',
-            availabePosition: 60,
-            numberInterested: 1800
-        }
-    ]);
+  const [categories, setCategories] = useState([
+    {
+      id: 1,
+      categoryName: "Design & Creative",
+      availablePosition: 10,
+      numberInterested: 50,
+    },
+    {
+      id: 2,
+      categoryName: "Web Developement",
+      availablePosition: 60,
+      numberInterested: 50,
+    },
+    {
+      id: 3,
+      categoryName: "Marketing",
+      availablePosition: 8,
+      numberInterested: 150,
+    },
+    {
+      id: 4,
+      categoryName: "UI/UX",
+      availablePosition: 9,
+      numberInterested: 200,
+    },
+    {
+      id: 5,
+      categoryName: "Administration",
+      availablePosition: 11,
+      numberInterested: 90,
+    },
+    {
+      id: 6,
+      categoryName: "Telemarketing",
+      availablePosition: 12,
+      numberInterested: 100,
+    },
+    {
+      id: 7,
+      categoryName: "Engineering",
+      availablePosition: 16,
+      numberInterested: 190,
+    },
+  ]);
 
-    const handleInterest = (id) => {
-        const updatedCategories = categories.map((category) => {
-            if (category.id === id) {
-                return { ...category, numberInterested: category.numberInterested + 1 };
-            }
-            return category;
-        });
-        setCategories(updatedCategories);
-        setSearchCategories(updatedCategories);
+  const [searchCategories, setSearchCategories] = useState(categories);
+
+  // Call API
+  const search = (keyword) => {
+
+    if (!keyword?.trim()) {
+      setSearchCategories(categories);
+    } else {
+      const searchResult = categories.filter((item) =>
+        item.categoryName.toLowerCase().includes(keyword?.trim().toLowerCase())
+      );
+      setSearchCategories(searchResult);
     }
+  };
 
-    const [searchCategories, setSearchCategories] = useState(categories);
+  const handleInterest = (id) => {
+    const updatedCategories = categories.map((item)=> {
+        if(item.id === id) return {...item, numberInterested: item.numberInterested + 1};
 
-    const search = (keyword) => {
-        if (!keyword.trim()) {
-            setSearchCategories(categories);
-            return;
-        } else {
-            const result = categories.filter((item) => item.categoryName.toLowerCase().includes(keyword.toLowerCase().trim()));
-            setSearchCategories(result);
-        }
+        return item;
+    });
 
-    }
+    setSearchCategories(updatedCategories);
+    setCategories(updatedCategories);
+  };
 
-    return (
-        <Container fluid className='mt-5'>
-            <Row className='justify-content-center' >
-                <Col md={10}>
-                    <h1>Popular Categories
-                        <Form.Control id="keyword" type="search" placeholder="Search job title skill or category name"
-                            className="my-2" aria-describedby="password" onChange={(e) => { search(e.target.value) }} />
-                    </h1>
-                    <Row >
-                        {searchCategories.map((category) => (
-                            <Col md={3} key={category.id} className='mb-3'>
-                                <CategoryCard category={category} handleInterest={handleInterest} />
-                            </Col>
-                        ))}
-                    </Row>
-                </Col>
-            </Row>
-        </Container>
-    )
-}
+  return (
+    <Container className="mt-5">
+      <Row className="justify-content-center">
+        <Col md={10}>
+          <h1>Popular Categories</h1>
+          <Form.Control
+            className="my-3"
+            type="search"
+            id="keyword"
+            onChange={(e) => {
+              search(e.target.value);
+            }}
+            placeholder="Search job title, skill or category"
+            aria-describedby="passwordHelpBlock"
+          />
+          <Row>
+            {searchCategories.map((category) => (
+              <Col key={category.id} md={3} className="mb-3">
+                <CategoryCard category={category} handleInterest = {handleInterest} />
+              </Col>
+            ))}
+          </Row>
+        </Col>
+      </Row>
+    </Container>
+  );
+};
 
-
-export default PopularCategory
+export default PopularCategory;

@@ -1,9 +1,14 @@
-import React from 'react'
+import { AuthStatesContext } from "@/app/provider/AuthProvider";
+import React, { useContext } from "react";
+import { Nav, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const PublicHeader = () => {
+  const { userContext } = useContext(AuthStatesContext);
+
   return (
-    <div className='container py-2'>
-        <nav className="navbar navbar-expand-lg bg-white">
+    <div className="container py-2">
+      <nav className="navbar navbar-expand-lg bg-white">
         {/* Logo */}
         <a className="navbar-brand fw-bold d-flex align-items-center" href="#">
           E-learning
@@ -64,28 +69,31 @@ const PublicHeader = () => {
           </ul>
 
           {/* Buttons */}
-          <div className="d-flex gap-2">
-            <button
-              className="btn text-white px-4"
-              style={{ backgroundColor: "#6f4ef6" }}
-            >
-              Sign In
-            </button>
-
-            <button
-              className="btn px-4"
-              style={{
-                backgroundColor: "#ede9fe",
-                color: "#6f4ef6",
-              }}
-            >
-              Sign Up
-            </button>
-          </div>
+          {!userContext ? (
+            <div className="d-flex gap-2">
+              <Link className="btn text-white px-4" style={{ backgroundColor: "#6f4ef6" }} to="/login">Sign In</Link>
+        
+              <button
+                className="btn px-4"
+                style={{
+                  backgroundColor: "#ede9fe",
+                  color: "#6f4ef6",
+                }}
+              >
+                Sign Up
+              </button>
+            </div>
+          ) : (
+            <Nav variant="pills" activeKey="1" onSelect="">
+              <NavDropdown title={userContext.name} id="nav-dropdown">
+                <NavDropdown.Item eventKey="4.1">Logout</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          )}
         </div>
-    </nav>
+      </nav>
     </div>
-  )
-}
+  );
+};
 
-export default PublicHeader
+export default PublicHeader;

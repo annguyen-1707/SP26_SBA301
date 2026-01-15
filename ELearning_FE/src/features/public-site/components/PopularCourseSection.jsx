@@ -2,8 +2,13 @@ import React from "react";
 import CourseCard from "@/shared/components/CourseCard";
 import Carousel from "react-bootstrap/Carousel";
 import { Col, Container, Row } from "react-bootstrap";
+import withLoading from "@/shared/hoc/withLoading";
+
 
 const PopularCourseSection = () => {
+
+  // Call API
+
   return (
     <Container className="mt-5">
       <Row className="justify-content-center">
@@ -35,4 +40,5 @@ const PopularCourseSection = () => {
   );
 };
 
-export default PopularCourseSection;
+
+export default withLoading(PopularCourseSection);
