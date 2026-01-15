@@ -1,9 +1,8 @@
+import { useRoutes } from "react-router-dom";
 import publicRoutes from "./public.routes";
-import useRou
 
+const routes = [...publicRoutes];
 
-const routes = [
-    ...publicRoutes,
-]
-
-export default useRoutes(routes);
+export const AppRoutes = () => {
+  return useRoutes(routes);
+};

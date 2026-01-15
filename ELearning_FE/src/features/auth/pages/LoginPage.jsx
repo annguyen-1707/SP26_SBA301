@@ -1,5 +1,5 @@
 // LoginPage.jsx
-import React, { useState } from "react";
+import React, { use, useContext, useState } from "react";
 import {
   Container,
   Row,
@@ -8,6 +8,7 @@ import {
   Form,
   Button,
   InputGroup,
+  Alert,
 } from "react-bootstrap";
 import {
   FaUser,
@@ -19,14 +20,35 @@ import {
 } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import "@/styles/loginPage.css";
+import { auth } from "../services/auth.service";
+import { AuthActionsContext, AuthStatesContext } from "@/app/provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
-  
+  const [user, setUser] = useState({ email: "", password: "" });
+  const [message, setMessage] = useState("");
+  const {changeUser} = useContext(AuthActionsContext);
+  const navigate = useNavigate();
 
-  const onSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // TODO: handle login
+
+    // Call API
+    try {
+      const response = await auth.login(user);
+      localStorage.setItem("accessToken", response.accessToken);
+
+      // Set to context
+      changeUser(response.user);
+      
+      navigate("/home");
+
+    } catch (error) {
+      console.log(error.message);
+      setMessage(error.message || "An error has occurred!");
+    }
   };
 
   return (
@@ -38,7 +60,11 @@ export const LoginPage = () => {
               <Card.Body className="p-4 p-sm-5">
                 <h2 className="text-center fw-bold mb-4 lp-title">Login</h2>
 
-                <Form onSubmit={onSubmit}>
+                {message.length !== 0 &&
+                  <Alert variant="danger">{message}</Alert>
+                }
+
+                <Form onSubmit={handleSubmit}>
                   {/* Username / Email */}
                   <InputGroup className="lp-input mb-3">
                     <InputGroup.Text className="lp-icon-left">
@@ -49,6 +75,10 @@ export const LoginPage = () => {
                       placeholder="Username or Email"
                       className="lp-control"
                       autoComplete="username"
+                      value={user.email}
+                      onChange={(e) => {
+                        setUser({ ...user, email: e.target.value });
+                      }}
                     />
                   </InputGroup>
 
@@ -62,6 +92,10 @@ export const LoginPage = () => {
                       placeholder="Enter your Password"
                       className="lp-control"
                       autoComplete="current-password"
+                      value={user.password}
+                      onChange={(e) => {
+                        setUser({ ...user, password: e.target.value });
+                      }}
                     />
                     <Button
                       type="button"
