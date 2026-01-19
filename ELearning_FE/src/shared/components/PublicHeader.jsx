@@ -1,16 +1,16 @@
 import { AuthStatesContext } from "@/app/provider/AuthProvider";
 import React, { useContext } from "react";
 import { Nav, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const PublicHeader = () => {
   const { userContext } = useContext(AuthStatesContext);
-
+  const customNavLink = (isActive) => "nav-link" + (({ isActive }) ? "nav-link bottom-black border-bottom border-3" : "text-dark")
   return (
     <div className="container py-2">
       <nav className="navbar navbar-expand-lg bg-white">
         {/* Logo */}
-        <a className="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <NavLink className="navbar-brand fw-bold d-flex align-items-center" href="#">
           E-learning
           <span
             className="ms-1 rounded-circle"
@@ -21,7 +21,7 @@ const PublicHeader = () => {
               display: "inline-block",
             }}
           ></span>
-        </a>
+        </NavLink>
 
         {/* Button toggle mobile */}
         <button
@@ -37,34 +37,34 @@ const PublicHeader = () => {
         <div className="collapse navbar-collapse" id="mainNavbar">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
             <li className="nav-item">
-              <a className="nav-link fw-semibold text-primary" href="#">
+              <NavLink to="/home" className={customNavLink} href="#">
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink to="/home/course" className={customNavLink} href="#">
                 Courses
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink className={customNavLink} href="#">
                 Mentor
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink className={customNavLink} href="#">
                 Group
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink className={customNavLink} href="#">
                 Testimonial
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink className={customNavLink} href="#">
                 Docs
-              </a>
+              </NavLink>
             </li>
           </ul>
 
@@ -72,7 +72,7 @@ const PublicHeader = () => {
           {!userContext ? (
             <div className="d-flex gap-2">
               <Link className="btn text-white px-4" style={{ backgroundColor: "#6f4ef6" }} to="/login">Sign In</Link>
-        
+
               <button
                 className="btn px-4"
                 style={{
@@ -85,7 +85,7 @@ const PublicHeader = () => {
             </div>
           ) : (
             <Nav variant="pills" activeKey="1" onSelect="">
-              <NavDropdown title={userContext.name} id="nav-dropdown">
+<NavDropdown title={userContext.name} id="nav-dropdown">
                 <NavDropdown.Item eventKey="4.1">Logout</NavDropdown.Item>
               </NavDropdown>
             </Nav>
