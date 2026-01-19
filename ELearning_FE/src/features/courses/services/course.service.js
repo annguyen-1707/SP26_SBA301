@@ -1,8 +1,11 @@
-import axiosClient from "@/shared/services/axiosClient"
+import axiosClient from "@/shared/services/axiosClient";
+
+
 const courseService = {
     findAll: async () => {
-        axiosClient.get()
-    }
-}
+        const response = await axiosClient.get("/courses");
+        return response.data;
+    },
+};
 
 export default courseService;

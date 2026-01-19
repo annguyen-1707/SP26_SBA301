@@ -1,12 +1,18 @@
+import CourseCard from "@/shared/components/CourseCard";
 import React from "react";
+import { Col, Row } from "react-bootstrap";
 
-const CourseList = ({ courses }) => {
+const CourseList = (props) => {
+  const courses = props.courses;
+  console.log("Course List" + courses);
   return (
-    <ul>
+    <Row>
       {courses.map((course) => (
-        <li key={course.id}>{course.name}</li>
+        <Col key={course.id} md={4}>
+          <CourseCard course={course} />
+        </Col>
       ))}
-    </ul>
+    </Row>
   );
 };
 

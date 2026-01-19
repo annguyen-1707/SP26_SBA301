@@ -1,22 +1,16 @@
-import MentorSection from "../features/public-site/components/mentor/MentorSection";
-import HeroSection from "@/features/public-site/components/HeroSection";
-import "./App.css";
-import PublicHomePage from "@/features/public-site/pages/PublicHomePage";
-import { BrowserRouter, Route, Router, RouterProvider, Routes } from "react-router-dom";
-import { LoginPage } from "@/features/auth/pages/LoginPage";
+import { RouterProvider } from "react-router-dom";
 import routes from "./routers/routes";
 
 function App() {
   return (
-    <RouterProvider router={routes}>
+    <RouterProvider router={routes}></RouterProvider>
 
-    </RouterProvider>
     // <BrowserRouter>
     //   <AppRoutes />
-    //   <Routes>
+    //   {/* <Routes>
     //     <Route path="/login" element={<LoginPage />}></Route>
     //     <Route path="/" index={true} element={<PublicHomePage />}></Route>
-    //   </Routes>
+    //   </Routes> */}
     // </BrowserRouter>
   );
 }

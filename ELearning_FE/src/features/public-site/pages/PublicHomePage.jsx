@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import HeroSection from "../components/HeroSection";
-import PublicHeader from "../../../shared/components/PublicHeader";
-import PopularCourseSection from "../components/PopularCourseSection";
 import PopularCategory from "../components/PopularCategory";
-import PublicFooter from "@/shared/components/PublicFooter";
+import HeroSection from "../components/HeroSection";
+import PopularCourse from "../components/PopularCourse";
 
 const PublicHomePage = () => {
   const [isLoading, setLoading] = useState(true);
@@ -18,11 +16,8 @@ const PublicHomePage = () => {
 
   return (
     <>
-
       <HeroSection />
-
-      <PopularCourseSection isLoading={isLoading} />
-
+      <PopularCourse isLoading={isLoading} />
       <PopularCategory />
 
     </>
