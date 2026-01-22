@@ -34,6 +34,7 @@ export const LoginPage = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     // TODO: handle login
+    
 
     // Call API
     try {

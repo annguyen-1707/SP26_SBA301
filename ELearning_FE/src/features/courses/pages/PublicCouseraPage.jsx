@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CourseFilter from "../components/CourseFilter";
 import CourseList from "../components/CourseList";
-import courseService from "../courseService";
+import courseService from "../services/course.service";
 import { useLoaderData } from "react-router-dom";
 
 const PublicCouseraPage = () => {

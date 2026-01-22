@@ -3,7 +3,6 @@ import PublicCoursePage from '@/features/courses/pages/PublicCouseraPage';
 import PublicHomePage from '@/features/public-site/pages/PublicHomePage';
 import React from 'react'
 import PublicLayout from '../layouts/PublicLayout';
-import PublicCoursePage from '@/features/courses/pages/PublicCoursePage';
 import courseService from '@/features/courses/services/course.service';
 
 const publicRoutes = [
