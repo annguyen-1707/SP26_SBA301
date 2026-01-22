@@ -15,7 +15,7 @@ const PublicCoursePage = () => {
   return (
     <section className="bg-light p-4 my-5">
       <Container>
-        <Row className="gap-2">
+        <Row>
           <Col md={3} xl={4} className="bg-white p-4 rounded-3">
             <CourseFilter />
           </Col>

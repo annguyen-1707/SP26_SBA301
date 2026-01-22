@@ -6,7 +6,7 @@ const CourseList = (props) => {
   const courses = props.courses;
   console.log("Course List" + courses);
   return (
-    <Row>
+    <Row className="mt-3">
       {courses.map((course) => (
         <Col key={course.id} md={4}>
           <CourseCard course={course} />

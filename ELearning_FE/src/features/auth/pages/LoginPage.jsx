@@ -40,6 +40,7 @@ export const LoginPage = () => {
     try {
       const response = await auth.login(user);
       localStorage.setItem("accessToken", response.accessToken);
+      localStorage.setItem("user", JSON.stringify(response.user));
 
       // Set to context
       changeUser(response.user);

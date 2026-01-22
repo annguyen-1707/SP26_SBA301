@@ -1,49 +1,49 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useEffect, useState } from "react";
 
 export const AuthStatesContext = createContext();
 export const AuthActionsContext = createContext();
 
 const AuthProvider = ({ children }) => {
-    // State
-    const [userContext, setUserContext] = useState(null);
-    const [language, setLanguage] = useState("EN");
+  // State
+  const [userContext, setUserContext] = useState(null);
+  const [language, setLanguage] = useState("EN");
 
-    useEffect(() => {
-        async function setData() {
-            const user = localStorage.getItem("user");
-            setUserContext(JSON.parse(user));
-        }
-        setData();
-    }, [])
-
-    // Actions/Functions
-
-    const changeUser = (user) => {
-        console.log("Set user to context");
-        setUserContext(user);
+  useEffect(() => {
+    async function setData() {
+      const user = localStorage.getItem("user");
+      setUserContext(JSON.parse(user));
     }
+    setData();
+  }, []);
 
-    const changeLang = (other) => {
-        setLanguage(other);
-    }
+  // Actions/Functions
 
-    const logout = () => {
-        localStorage.removeItem("accessToken");
-        setUserContext(null);
+  const changeUser = (user) => {
+    console.log("Set user to context");
+    setUserContext(user);
+  };
 
-        window.location.href = "/login";
-    }
+  const changeLang = (other) => {
+    setLanguage(other);
+  };
 
-    const stateValues = { userContext, language };
-    const actionValues = { changeUser, logout, changeLang };
+  const logout = () => {
+    localStorage.removeItem("accessToken");
+    setUserContext(null);
 
-    return (
-        <AuthStatesContext.Provider value={stateValues}>
-            <AuthActionsContext.Provider value={actionValues}>
-                {children}
-            </AuthActionsContext.Provider>
-        </AuthStatesContext.Provider>
-    )
-}
+    window.location.href = "/login";
+  };
 
-export default AuthProvider
+  const stateValues = { userContext, language };
+  const actionValues = { changeUser, logout, changeLang };
+
+  return (
+    <AuthStatesContext.Provider value={stateValues}>
+      <AuthActionsContext.Provider value={actionValues}>
+        {children}
+      </AuthActionsContext.Provider>
+    </AuthStatesContext.Provider>
+  );
+};
+
+export default AuthProvider;

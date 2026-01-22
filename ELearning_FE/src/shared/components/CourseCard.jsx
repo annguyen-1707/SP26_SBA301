@@ -3,7 +3,7 @@ import {Card, Badge} from 'react-bootstrap';
 
 const CourseCard = ({course}) => {
   return (
-   <Card className="shadow-sm border-1 rounded-4 overflow-hidden" style={{ width: 280, height: 430 }}>
+   <Card className="shadow-sm border-1 rounded-4 overflow-hidden my-3" style={{ width: "100%", height: 430 }}>
       {/* Image + badge overlay */}
       <div className="position-relative">
         <Card.Img
