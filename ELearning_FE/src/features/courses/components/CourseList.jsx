@@ -4,14 +4,15 @@ import { Col, Row } from "react-bootstrap";
 
 const CourseList = (props) => {
   const courses = props.courses;
-  console.log("Course List" + courses);
+  console.log("Course List" , props);
   return (
     <Row className="mt-3">
-      {courses.map((course) => (
-        <Col key={course.id} md={4}>
-          <CourseCard course={course} />
-        </Col>
-      ))}
+      {Array.isArray(courses) &&
+        courses.map((course) => (
+          <Col key={course.id} md={4}>
+            <CourseCard course={course} />
+          </Col>
+        ))}
     </Row>
   );
 };

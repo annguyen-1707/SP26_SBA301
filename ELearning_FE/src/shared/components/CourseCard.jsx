@@ -1,9 +1,10 @@
 import React from 'react'
-import {Card, Badge} from 'react-bootstrap';
+import { Card, Badge, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const CourseCard = ({course}) => {
+const CourseCard = ({ course }) => {
   return (
-   <Card className="shadow-sm border-1 rounded-4 overflow-hidden my-3" style={{ width: "100%", height: 430 }}>
+    <Card className="shadow-sm border-1 rounded-4 overflow-hidden my-3" style={{ width: "100%", height: 430 }}>
       {/* Image + badge overlay */}
       <div className="position-relative">
         <Card.Img
@@ -31,8 +32,11 @@ const CourseCard = ({course}) => {
 
       <Card.Body className="p-3">
         <Card.Title className="fw-bold fs-4 mb-2">
-          Design system with <br />
-          React programme
+          {/* Design system with <br />
+          React programme */}
+          <Nav.Link as={Link} to="/courses">
+            Courses
+          </Nav.Link>
         </Card.Title>
 
         <div className="d-flex justify-content-between align-items-end">
