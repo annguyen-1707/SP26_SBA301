@@ -6,6 +6,11 @@ const courseService = {
         const response = await axiosClient.get("/courses");
         return response.data;
     },
+    findById: async (courseId) => {
+        const response = await axiosClient.get(`/courses/${courseId}`);
+        return response.data;
+    },
+   
 };
 
 export default courseService;

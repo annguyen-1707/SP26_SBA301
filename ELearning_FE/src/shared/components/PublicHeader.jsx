@@ -5,7 +5,9 @@ import { Link, NavLink } from "react-router-dom";
 
 const PublicHeader = () => {
   const { userContext } = useContext(AuthStatesContext);
-  const navLinkCutom = ({isActive}) => "nav-link " + (isActive? "border-bottom border-black text-info": " text-gray")
+  const navLinkCutom = ({ isActive }) =>
+    "nav-link " +
+    (isActive ? "border-bottom border-black text-info" : " text-gray");
 
   return (
     <div className="container py-2">
@@ -38,7 +40,9 @@ const PublicHeader = () => {
         <div className="collapse navbar-collapse" id="mainNavbar">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
             <li className="nav-item">
-              <NavLink to="/" end className={navLinkCutom}>Home</NavLink>
+              <NavLink to="/" end className={navLinkCutom}>
+                Home
+              </NavLink>
             </li>
             <li className="nav-item">
               <NavLink to="/courses" className={navLinkCutom}>
@@ -70,9 +74,17 @@ const PublicHeader = () => {
           {/* Buttons */}
           {!userContext ? (
             <div className="d-flex gap-2">
-              <Link className="btn text-white px-4" style={{ backgroundColor: "#6f4ef6" }} to="/login">Sign In</Link>
-        
-              <button
+              <Link
+                className="btn text-white px-4"
+                style={{ backgroundColor: "#6f4ef6" }}
+                to="/login"
+              >
+                Sign In
+              </Link>
+
+              <Link
+                type="button"
+                to="/register"
                 className="btn px-4"
                 style={{
                   backgroundColor: "#ede9fe",
@@ -80,7 +92,7 @@ const PublicHeader = () => {
                 }}
               >
                 Sign Up
-              </button>
+              </Link>
             </div>
           ) : (
             <Nav variant="pills" activeKey="1" onSelect="">

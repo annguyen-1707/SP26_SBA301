@@ -8,7 +8,7 @@ const CourseList = (props) => {
   return (
     <Row className="mt-3">
       {courses.map((course) => (
-        <Col key={course.id} md={4}>
+        <Col key={course.id} md={3}>
           <CourseCard course={course} />
         </Col>
       ))}

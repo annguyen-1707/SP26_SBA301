@@ -1,30 +1,37 @@
 import React, { useState } from "react";
-import { Badge, Button, Col, Container, Form, Row } from "react-bootstrap";
-import { StarFill } from "react-bootstrap-icons";
+import { Col, Container, Row } from "react-bootstrap";
 import CourseFilter from "../components/CourseFilter";
 import CourseList from "../components/CourseList";
 import { useLoaderData } from "react-router-dom";
+import HeroSection from "@/features/public-site/components/HeroSection";
 
 const PublicCoursePage = () => {
-  // const courses = useLoaderData();
   const [courses, setCourses] = useState(useLoaderData());
   // Call API
 
   console.log(courses);
 
   return (
-    <section className="bg-light p-4 my-5">
-      <Container>
-        <Row>
-          <Col md={3} xl={4} className="bg-white p-4 rounded-3">
-            <CourseFilter />
-          </Col>
-          <Col md={9} xl={8} className="bg-white">
-            <CourseList courses={courses} />
-          </Col>
-        </Row>
-      </Container>
-    </section>
+    <>
+      <HeroSection />
+      <section className="bg-light py-1">
+        <Container fluid>
+          <Row className="g-2 shadow-md">
+            <Col md={2} xl={3}>
+              <div className="bg-white p-4 rounded-3 h-100">
+                <CourseFilter />
+              </div>
+            </Col>
+
+            <Col md={11} xl={9}>
+              <div className="bg-white p-4 rounded-3 shadow-md">
+                <CourseList courses={courses} />
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+    </>
   );
 };
 

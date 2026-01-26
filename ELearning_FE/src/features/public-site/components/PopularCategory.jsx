@@ -75,9 +75,10 @@ const PopularCategory = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <section className="popular-category py-5 bg-light">
+      <Container>
       <Row className="justify-content-center">
-        <Col md={10}>
+        <Col md={12}>
           <h1>Popular Categories</h1>
           <Form.Control
             className="my-3"
@@ -98,7 +99,8 @@ const PopularCategory = () => {
           </Row>
         </Col>
       </Row>
-    </Container>
+      </Container>
+    </section>
   );
 };
 
