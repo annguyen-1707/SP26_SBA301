@@ -5,6 +5,7 @@ import React from 'react'
 import PublicLayout from '../layouts/PublicLayout';
 import courseService from '@/features/courses/services/course.service';
 import PublicCouseraPage from '@/features/courses/pages/PublicCouseraPage';
+import CourseDetail from '@/features/courses/CourseDetail';
 
 const publicRoutes = [
     {path: "/login", element: <LoginPage />},
@@ -14,7 +15,9 @@ const publicRoutes = [
             {index: true, element: <PublicHomePage />},
             {path: "/courses", element: <PublicCouseraPage />,
                 loader: courseService.findAll
-            }
+            },
+            {path: "/courses/:id", element: <CourseDetail />,
+            },
         ]
 
     },

@@ -1,11 +1,15 @@
 import { AuthStatesContext } from "@/app/provider/AuthProvider";
+import { CartContext } from "@/app/provider/CartContext";
 import React, { useContext } from "react";
-import { Nav, NavDropdown } from "react-bootstrap";
+import { Badge, Nav, NavDropdown } from "react-bootstrap";
+import { Cart } from "react-bootstrap-icons";
 import { Link, NavLink } from "react-router-dom";
 
 const PublicHeader = () => {
   const { userContext } = useContext(AuthStatesContext);
-  const navLinkCutom = ({isActive}) => "nav-link " + (isActive? "border-bottom border-black text-info": " text-gray")
+  const navLinkCutom = ({ isActive }) => "nav-link " + (isActive ? "border-bottom border-black text-info" : " text-gray")
+
+  const { state } = useContext(CartContext);
 
   return (
     <div className="container py-2">
@@ -71,7 +75,7 @@ const PublicHeader = () => {
           {!userContext ? (
             <div className="d-flex gap-2">
               <Link className="btn text-white px-4" style={{ backgroundColor: "#6f4ef6" }} to="/login">Sign In</Link>
-        
+
               <button
                 className="btn px-4"
                 style={{
@@ -83,7 +87,21 @@ const PublicHeader = () => {
               </button>
             </div>
           ) : (
+
             <Nav variant="pills" activeKey="1" onSelect="">
+              <Nav.Link as={Link} to="/cart" className="position-relative">
+                <Cart size={22} />
+
+                {/* {cartCount > 0 && ( */}
+                <Badge
+                  bg="danger"
+                  pill
+                  className="position-absolute top-0 start-100 translate-middle"
+                >
+                  {state.items.length}
+                </Badge>
+                {/* )} */}
+              </Nav.Link>
               <NavDropdown title={userContext.name} id="nav-dropdown">
                 <NavDropdown.Item eventKey="4.1">Logout</NavDropdown.Item>
               </NavDropdown>
