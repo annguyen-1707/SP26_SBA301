@@ -1,7 +1,690 @@
 {
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "email": "admin@company.com",
+      "fullName": "System Admin",
+      "status": "ACTIVE",
+      "password": "admin123",
+      "avatar": "https://i.pravatar.cc/150?img=1"
+    },
+    {
+      "id": "2",
+      "username": "recruiter01",
+      "email": "lan.nguyen@company.com",
+      "fullName": "Nguyen Thi Lan",
+      "status": "ACTIVE",
+      "password": "recruiter123",
+      "avatar": "https://i.pravatar.cc/150?img=5"
+    },
+    {
+      "id": "3",
+      "username": "manager01",
+      "email": "minh.tran@company.com",
+      "fullName": "Tran Van Minh",
+      "status": "ACTIVE",
+      "password": "manager123",
+      "avatar": "https://i.pravatar.cc/150?img=8"
+    },
+    {
+      "id": "4",
+      "username": "interviewer01",
+      "email": "anh.le@company.com",
+      "fullName": "Le Quang Anh",
+      "status": "ACTIVE",
+      "password": "interviewer123",
+      "avatar": "https://i.pravatar.cc/150?img=12"
+    },
+    {
+      "id": "9cfa",
+      "username": "Trung",
+      "email": "trung@gmail.com",
+      "password": "12345",
+      "confirmPassword": "12345"
+    },
+    {
+      "id": "d705",
+      "username": "Trung",
+      "email": "trung@gmail.com",
+      "password": "12345",
+      "confirmPassword": "12345"
+    }
+  ],
+  "roles": [
+    {
+      "id": "1",
+      "code": "ADMIN",
+      "name": "Administrator"
+    },
+    {
+      "id": "2",
+      "code": "RECRUITER",
+      "name": "Recruiter"
+    },
+    {
+      "id": "3",
+      "code": "MANAGER",
+      "name": "Hiring Manager"
+    },
+    {
+      "id": "4",
+      "code": "INTERVIEWER",
+      "name": "Interviewer"
+    }
+  ],
+  "permissions": [
+    {
+      "id": "1",
+      "code": "USER_MANAGE"
+    },
+    {
+      "id": "2",
+      "code": "JOB_CREATE"
+    },
+    {
+      "id": "3",
+      "code": "JOB_APPROVE"
+    },
+    {
+      "id": "4",
+      "code": "INTERVIEW_SCHEDULE"
+    },
+    {
+      "id": "5",
+      "code": "INTERVIEW_FEEDBACK"
+    },
+    {
+      "id": "6",
+      "code": "OFFER_CREATE"
+    },
+    {
+      "id": "7",
+      "code": "VIEW_REPORT"
+    }
+  ],
+  "userRoles": [
+    {
+      "id": "1",
+      "userId": 1,
+      "roleId": 1
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "roleId": 2
+    },
+    {
+      "id": "3",
+      "userId": 3,
+      "roleId": 3
+    },
+    {
+      "id": "4",
+      "userId": 4,
+      "roleId": 4
+    }
+  ],
+  "rolePermissions": [
+    {
+      "id": "1",
+      "roleId": 1,
+      "permissionId": 1
+    },
+    {
+      "id": "2",
+      "roleId": 1,
+      "permissionId": 2
+    },
+    {
+      "id": "3",
+      "roleId": 1,
+      "permissionId": 3
+    },
+    {
+      "id": "4",
+      "roleId": 1,
+      "permissionId": 4
+    },
+    {
+      "id": "5",
+      "roleId": 1,
+      "permissionId": 5
+    },
+    {
+      "id": "6",
+      "roleId": 1,
+      "permissionId": 6
+    },
+    {
+      "id": "7",
+      "roleId": 1,
+      "permissionId": 7
+    },
+    {
+      "id": "8",
+      "roleId": 2,
+      "permissionId": 2
+    },
+    {
+      "id": "9",
+      "roleId": 2,
+      "permissionId": 4
+    },
+    {
+      "id": "10",
+      "roleId": 2,
+      "permissionId": 6
+    },
+    {
+      "id": "11",
+      "roleId": 3,
+      "permissionId": 3
+    },
+    {
+      "id": "12",
+      "roleId": 3,
+      "permissionId": 7
+    },
+    {
+      "id": "13",
+      "roleId": 4,
+      "permissionId": 5
+    }
+  ],
   "courses": [
     {
-      "id": 1,
+      "id": "react-lms-fe",
+      "title": "React LMS Frontend: Xây dựng giao diện LMS từ A-Z",
+      "subtitle": "Xây dựng giao diện LMS thực tế với React và React Bootstrap",
+      "image": "",
+      "rating": 4.6,
+      "ratingCount": 1287,
+      "students": 18420,
+      "level": "Beginner to Intermediate",
+      "language": "Tiếng Việt",
+      "lastUpdated": "01/2026",
+      "totalHours": 18.5,
+      "lectures": 76,
+      "sections": 10,
+      "price": {
+        "current": 399000,
+        "original": 899000,
+        "discountText": "Giảm 55%"
+      },
+      "instructor": {
+        "name": "Dieu Nguyen",
+        "title": "Frontend Engineer",
+        "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+        "bio": "Hơn 5 năm kinh nghiệm React, xây dựng LMS và dashboard thực tế.",
+        "stats": {
+          "courses": 6,
+          "students": 52000,
+          "reviews": 7200
+        }
+      },
+      "whatYouWillLearn": [
+        "Xây dựng LMS UI giống Udemy",
+        "React Bootstrap chuyên nghiệp",
+        "Routing & layout LMS",
+        "Component tái sử dụng"
+      ],
+      "requirements": [
+        "HTML/CSS cơ bản",
+        "JavaScript ES6"
+      ],
+      "includes": [
+        "18.5 giờ video",
+        "76 bài giảng",
+        "Chứng chỉ"
+      ],
+      "curriculum": [
+        {
+          "title": "Giới thiệu",
+          "lectures": 6,
+          "duration": "1h",
+          "items": [
+            "Giới thiệu LMS",
+            "Cài đặt môi trường",
+            "Cấu trúc project"
+          ]
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "id": "react-basic",
+      "title": "React JS Cơ Bản Cho Người Mới",
+      "subtitle": "Nắm vững nền tảng React từ số 0",
+      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+      "rating": 4.5,
+      "ratingCount": 2100,
+      "students": 32000,
+      "level": "Beginner",
+      "language": "Tiếng Việt",
+      "lastUpdated": "12/2025",
+      "totalHours": 14,
+      "lectures": 60,
+      "sections": 8,
+      "price": {
+        "current": 299000,
+        "original": 699000,
+        "discountText": "Giảm 57%"
+      },
+      "instructor": {
+        "name": "Nguyen Van A",
+        "title": "React Developer",
+        "avatar": "https://randomuser.me/api/portraits/men/12.jpg",
+        "bio": "Giảng viên React cơ bản.",
+        "stats": {
+          "courses": 4,
+          "students": 40000,
+          "reviews": 5200
+        }
+      },
+      "whatYouWillLearn": [
+        "JSX",
+        "Props & State",
+        "Hooks cơ bản"
+      ],
+      "requirements": [
+        "JavaScript cơ bản"
+      ],
+      "includes": [
+        "14 giờ video",
+        "Source code"
+      ],
+      "curriculum": [],
+      "reviews": []
+    },
+    {
+      "id": "react-advanced",
+      "title": "React Advanced Patterns & Performance",
+      "subtitle": "Tối ưu React app chuyên sâu",
+      "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
+      "rating": 4.7,
+      "ratingCount": 980,
+      "students": 12400,
+      "level": "Advanced",
+      "language": "Tiếng Việt",
+      "lastUpdated": "11/2025",
+      "totalHours": 20,
+      "lectures": 85,
+      "sections": 12,
+      "price": {
+        "current": 499000,
+        "original": 999000,
+        "discountText": "Giảm 50%"
+      },
+      "instructor": {
+        "name": "Tran Minh",
+        "title": "Senior Frontend Engineer",
+        "avatar": "https://randomuser.me/api/portraits/men/45.jpg",
+        "bio": "Chuyên gia tối ưu React.",
+        "stats": {
+          "courses": 3,
+          "students": 18000,
+          "reviews": 3200
+        }
+      },
+      "whatYouWillLearn": [
+        "Memoization",
+        "Code splitting",
+        "Advanced hooks"
+      ],
+      "requirements": [
+        "React cơ bản"
+      ],
+      "includes": [
+        "20 giờ video"
+      ],
+      "curriculum": [],
+      "reviews": []
+    },
+    {
+      "id": "redux-toolkit",
+      "title": "Redux Toolkit Thực Chiến",
+      "subtitle": "Quản lý state hiệu quả với RTK",
+      "image": "https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6",
+      "rating": 4.6,
+      "ratingCount": 760,
+      "students": 9800,
+      "level": "Intermediate",
+      "language": "Tiếng Việt",
+      "lastUpdated": "10/2025",
+      "totalHours": 12,
+      "lectures": 48,
+      "sections": 6,
+      "price": {
+        "current": 349000,
+        "original": 799000,
+        "discountText": "Giảm 56%"
+      },
+      "instructor": {
+        "name": "Le Hoang",
+        "title": "Frontend Engineer",
+        "avatar": "https://randomuser.me/api/portraits/men/55.jpg",
+        "bio": "Redux & State management.",
+        "stats": {
+          "courses": 5,
+          "students": 22000,
+          "reviews": 4100
+        }
+      },
+      "whatYouWillLearn": [
+        "Redux Toolkit",
+        "RTK Query"
+      ],
+      "requirements": [
+        "React hooks"
+      ],
+      "includes": [
+        "12 giờ video"
+      ],
+      "curriculum": [],
+      "reviews": []
+    },
+    {
+      "id": "typescript-react",
+      "title": "TypeScript cho React Developer",
+      "subtitle": "Viết React an toàn và scalable với TS",
+      "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
+      "rating": 4.8,
+      "ratingCount": 1340,
+      "students": 21000,
+      "level": "Intermediate",
+      "language": "Tiếng Việt",
+      "lastUpdated": "09/2025",
+      "totalHours": 15,
+      "lectures": 62,
+      "sections": 7,
+      "price": {
+        "current": 399000,
+        "original": 899000,
+        "discountText": "Giảm 55%"
+      },
+      "instructor": {
+        "name": "Pham Quoc",
+        "title": "Fullstack Engineer",
+        "avatar": "https://randomuser.me/api/portraits/men/61.jpg",
+        "bio": "TypeScript chuyên sâu.",
+        "stats": {
+          "courses": 4,
+          "students": 30000,
+          "reviews": 6000
+        }
+      },
+      "whatYouWillLearn": [
+        "Type system",
+        "Generic",
+        "Typing hooks"
+      ],
+      "requirements": [
+        "React cơ bản"
+      ],
+      "includes": [
+        "15 giờ video"
+      ],
+      "curriculum": [],
+      "reviews": []
+    },
+    {
+      "id": "ui-ux-react",
+      "title": "UI/UX cho React Developer",
+      "subtitle": "Thiết kế UI đẹp và dễ dùng",
+      "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d",
+      "rating": 4.4,
+      "ratingCount": 540,
+      "students": 8700,
+      "level": "Beginner",
+      "language": "Tiếng Việt",
+      "lastUpdated": "08/2025",
+      "totalHours": 10,
+      "lectures": 40,
+      "sections": 5,
+      "price": {
+        "current": 259000,
+        "original": 599000,
+        "discountText": "Giảm 57%"
+      },
+      "instructor": {
+        "name": "Vo Linh",
+        "title": "UI Engineer",
+        "avatar": "https://randomuser.me/api/portraits/women/23.jpg",
+        "bio": "UI/UX cho web app.",
+        "stats": {
+          "courses": 2,
+          "students": 9000,
+          "reviews": 1200
+        }
+      },
+      "whatYouWillLearn": [
+        "Design system",
+        "UX cơ bản"
+      ],
+      "requirements": [],
+      "includes": [
+        "10 giờ video"
+      ],
+      "curriculum": [],
+      "reviews": []
+    },
+    {
+      "id": "nextjs-basic",
+      "title": "Next.js Cơ Bản",
+      "subtitle": "SSR & SSG với Next.js",
+      "image": "https://images.unsplash.com/photo-1551033406-611cf9a28f67",
+      "rating": 4.6,
+      "ratingCount": 890,
+      "students": 14500,
+      "level": "Intermediate",
+      "language": "Tiếng Việt",
+      "lastUpdated": "07/2025",
+      "totalHours": 13,
+      "lectures": 55,
+      "sections": 7,
+      "price": {
+        "current": 379000,
+        "original": 799000,
+        "discountText": "Giảm 52%"
+      },
+      "instructor": {
+        "name": "Nguyen Bao",
+        "title": "Frontend Architect",
+        "avatar": "https://randomuser.me/api/portraits/men/71.jpg",
+        "bio": "Next.js chuyên sâu.",
+        "stats": {
+          "courses": 3,
+          "students": 19000,
+          "reviews": 3100
+        }
+      },
+      "whatYouWillLearn": [
+        "SSR",
+        "Routing",
+        "SEO"
+      ],
+      "requirements": [
+        "React"
+      ],
+      "includes": [
+        "13 giờ video"
+      ],
+      "curriculum": [],
+      "reviews": []
+    },
+    {
+      "id": "api-frontend",
+      "title": "Kết Nối API Cho Frontend",
+      "subtitle": "Fetch, Axios & Error Handling",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475",
+      "rating": 4.5,
+      "ratingCount": 670,
+      "students": 11000,
+      "level": "Beginner",
+      "language": "Tiếng Việt",
+      "lastUpdated": "06/2025",
+      "totalHours": 9,
+      "lectures": 38,
+      "sections": 4,
+      "price": {
+        "current": 229000,
+        "original": 499000,
+        "discountText": "Giảm 54%"
+      },
+      "instructor": {
+        "name": "Tran Tuan",
+        "title": "Frontend Engineer",
+        "avatar": "https://randomuser.me/api/portraits/men/83.jpg",
+        "bio": "API & frontend.",
+        "stats": {
+          "courses": 2,
+          "students": 15000,
+          "reviews": 2000
+        }
+      },
+      "whatYouWillLearn": [
+        "Fetch API",
+        "Axios"
+      ],
+      "requirements": [],
+      "includes": [
+        "9 giờ video"
+      ],
+      "curriculum": [],
+      "reviews": []
+    },
+    {
+      "id": "responsive-bootstrap",
+      "title": "Responsive Web với Bootstrap & React",
+      "subtitle": "Thiết kế web responsive chuẩn",
+      "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+      "rating": 4.3,
+      "ratingCount": 430,
+      "students": 7200,
+      "level": "Beginner",
+      "language": "Tiếng Việt",
+      "lastUpdated": "05/2025",
+      "totalHours": 8,
+      "lectures": 32,
+      "sections": 4,
+      "price": {
+        "current": 199000,
+        "original": 449000,
+        "discountText": "Giảm 56%"
+      },
+      "instructor": {
+        "name": "Le My",
+        "title": "UI Developer",
+        "avatar": "https://randomuser.me/api/portraits/women/34.jpg",
+        "bio": "Bootstrap & responsive.",
+        "stats": {
+          "courses": 3,
+          "students": 8000,
+          "reviews": 900
+        }
+      },
+      "whatYouWillLearn": [
+        "Grid system",
+        "Responsive layout"
+      ],
+      "requirements": [],
+      "includes": [
+        "8 giờ video"
+      ],
+      "curriculum": [],
+      "reviews": []
+    },
+    {
+      "id": "frontend-architecture",
+      "title": "Kiến Trúc Frontend Thực Tế",
+      "subtitle": "Cách tổ chức dự án lớn",
+      "image": "https://images.unsplash.com/photo-1504805572947-34fad45aed93",
+      "rating": 4.7,
+      "ratingCount": 510,
+      "students": 9200,
+      "level": "Advanced",
+      "language": "Tiếng Việt",
+      "lastUpdated": "04/2025",
+      "totalHours": 16,
+      "lectures": 70,
+      "sections": 9,
+      "price": {
+        "current": 459000,
+        "original": 999000,
+        "discountText": "Giảm 54%"
+      },
+      "instructor": {
+        "name": "Do Anh",
+        "title": "Frontend Lead",
+        "avatar": "https://randomuser.me/api/portraits/men/90.jpg",
+        "bio": "Frontend architecture.",
+        "stats": {
+          "courses": 1,
+          "students": 10000,
+          "reviews": 1800
+        }
+      },
+      "whatYouWillLearn": [
+        "Scalable frontend",
+        "Best practices"
+      ],
+      "requirements": [
+        "React nâng cao"
+      ],
+      "includes": [
+        "16 giờ video"
+      ],
+      "curriculum": [],
+      "reviews": []
+    },
+    {
+      "id": "frontend-testing",
+      "title": "Testing cho Frontend React",
+      "subtitle": "Jest & React Testing Library",
+      "image": "https://images.unsplash.com/photo-1517433456452-f9633a875f6f",
+      "rating": 4.5,
+      "ratingCount": 380,
+      "students": 6000,
+      "level": "Intermediate",
+      "language": "Tiếng Việt",
+      "lastUpdated": "03/2025",
+      "totalHours": 11,
+      "lectures": 45,
+      "sections": 6,
+      "price": {
+        "current": 329000,
+        "original": 699000,
+        "discountText": "Giảm 53%"
+      },
+      "instructor": {
+        "name": "Pham Long",
+        "title": "QA Engineer",
+        "avatar": "https://randomuser.me/api/portraits/men/101.jpg",
+        "bio": "Frontend testing.",
+        "stats": {
+          "courses": 2,
+          "students": 7000,
+          "reviews": 1200
+        }
+      },
+      "whatYouWillLearn": [
+        "Unit test",
+        "Integration test"
+      ],
+      "requirements": [
+        "React"
+      ],
+      "includes": [
+        "11 giờ video"
+      ],
+      "curriculum": [],
+      "reviews": []
+    }
+  ],
+  "simpleCourses": [
+    {
+      "id": "1",
       "title": "We Launch Delia Webflow this Week!",
       "price": 20,
       "rating": 5,
@@ -19,7 +702,7 @@
       }
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Master ReactJS from Zero to Hero",
       "price": 35,
       "rating": 4.8,
@@ -37,7 +720,7 @@
       }
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "JavaScript Advanced Concepts",
       "price": 30,
       "rating": 4.7,
@@ -55,7 +738,7 @@
       }
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "UI/UX Design Fundamentals",
       "price": 25,
       "rating": 4.6,
@@ -73,7 +756,7 @@
       }
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "NodeJS & Express Backend",
       "price": 40,
       "rating": 4.9,
@@ -91,7 +774,7 @@
       }
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Fullstack Web Developer Bootcamp",
       "price": 55,
       "rating": 5,
@@ -109,7 +792,7 @@
       }
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "HTML & CSS Crash Course",
       "price": 15,
       "rating": 4.5,
@@ -127,7 +810,7 @@
       }
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "TypeScript for React Developers",
       "price": 28,
       "rating": 4.8,
@@ -145,7 +828,7 @@
       }
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Redux Toolkit & RTK Query",
       "price": 32,
       "rating": 4.9,
@@ -163,7 +846,7 @@
       }
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Build Real Projects with React",
       "price": 45,
       "rating": 5,

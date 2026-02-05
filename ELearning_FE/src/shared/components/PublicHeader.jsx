@@ -1,15 +1,13 @@
 import { AuthStatesContext } from "@/app/provider/AuthProvider";
-import { CartContext } from "@/app/provider/CartContext";
 import React, { useContext } from "react";
-import { Badge, Nav, NavDropdown } from "react-bootstrap";
-import { Cart } from "react-bootstrap-icons";
+import { Nav, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 
 const PublicHeader = () => {
   const { userContext } = useContext(AuthStatesContext);
-  const navLinkCutom = ({ isActive }) => "nav-link " + (isActive ? "border-bottom border-black text-info" : " text-gray")
-
-  const { state } = useContext(CartContext);
+  const navLinkCutom = ({ isActive }) =>
+    "nav-link " +
+    (isActive ? "border-bottom border-black text-info" : " text-gray");
 
   return (
     <div className="container py-2">
@@ -42,7 +40,9 @@ const PublicHeader = () => {
         <div className="collapse navbar-collapse" id="mainNavbar">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
             <li className="nav-item">
-              <NavLink to="/" end className={navLinkCutom}>Home</NavLink>
+              <NavLink to="/" end className={navLinkCutom}>
+                Home
+              </NavLink>
             </li>
             <li className="nav-item">
               <NavLink to="/courses" className={navLinkCutom}>
@@ -74,9 +74,17 @@ const PublicHeader = () => {
           {/* Buttons */}
           {!userContext ? (
             <div className="d-flex gap-2">
-              <Link className="btn text-white px-4" style={{ backgroundColor: "#6f4ef6" }} to="/login">Sign In</Link>
+              <Link
+                className="btn text-white px-4"
+                style={{ backgroundColor: "#6f4ef6" }}
+                to="/login"
+              >
+                Sign In
+              </Link>
 
-              <button
+              <Link
+                type="button"
+                to="/register"
                 className="btn px-4"
                 style={{
                   backgroundColor: "#ede9fe",
@@ -84,24 +92,10 @@ const PublicHeader = () => {
                 }}
               >
                 Sign Up
-              </button>
+              </Link>
             </div>
           ) : (
-
             <Nav variant="pills" activeKey="1" onSelect="">
-              <Nav.Link as={Link} to="/cart" className="position-relative">
-                <Cart size={22} />
-
-                {/* {cartCount > 0 && ( */}
-                <Badge
-                  bg="danger"
-                  pill
-                  className="position-absolute top-0 start-100 translate-middle"
-                >
-                  {state.items.length}
-                </Badge>
-                {/* )} */}
-              </Nav.Link>
               <NavDropdown title={userContext.name} id="nav-dropdown">
                 <NavDropdown.Item eventKey="4.1">Logout</NavDropdown.Item>
               </NavDropdown>
