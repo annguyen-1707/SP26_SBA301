@@ -1,0 +1,51 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+}
+
+.sidebar {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+/* hover utility nhỏ (bootstrap không có sẵn) */
+.hover-bg:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* Mobile: sidebar off-canvas tự chế rất nhẹ */
+@media (max-width: 991.98px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    z-index: 1040;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1039;
+  }
+  .sidebar-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.app-main {
+  flex: 1;
+  min-width: 0;
+}

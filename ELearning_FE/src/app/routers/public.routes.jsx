@@ -6,6 +6,7 @@ import PublicCoursePage from '@/features/courses/pages/PublicCoursePage';
 import courseService from '@/features/courses/services/course.service';
 import CourseDetail from '@/features/courses/pages/CourseDetail';
 import Register from '@/features/auth/pages/Register';
+import DashboardLayout from '../layouts/DashboardLayout';
 
 const publicRoutes = [
     {path: "/login", element: <LoginPage />},
@@ -22,6 +23,7 @@ const publicRoutes = [
         ]
 
     },
+     {path: "/admin", element: <DashboardLayout />},
     {path: "*", element: <div>404 Not Found</div> },
 ];
 export default publicRoutes;
